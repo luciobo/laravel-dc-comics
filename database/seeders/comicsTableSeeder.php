@@ -127,12 +127,13 @@ class comicsTableSeeder extends Seeder
 
         foreach ($dati as $dato) {
             $comic = new Comic();
-            $comic->name = $dato["title"];
+            $comic->title = $dato["title"];
             $comic->description = $dato["description"];
-            $comic->name = $dato["thumb"];
-            $comic->name = $dato["series"];
-            $comic->name = $dato["sale_date"];
-            $comic->name = $dato["type"];
+            $comic->thumb = $dato["thumb"];
+            $comic->price = $dato["price"];
+            $comic->series = $dato["series"];
+            $comic->sale_date = $dato["sale_date"];
+            $comic->type = $dato["type"];
 
             $comic->save();
         }
