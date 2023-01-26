@@ -38,6 +38,7 @@
                         {{-- Taglio il testo in modo che abbia massimo 50 caratteri.
                         Se ne ha di più vengono mostrati i ... --}}
                         <td>{{ Str::limit($comicEl->description, 50) }}</td>
+                        <td><img class="w-75 py-2" src="{{ $comicEl->thumb }}" alt=""></td>
                         <td>€ {{ $comicEl->price }}</td>
                         <td>{{ $comicEl->series }}</td>
                         <td>{{ $comicEl->sale_date }}</td>
