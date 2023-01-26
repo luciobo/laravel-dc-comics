@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// use App\Models\train;
+use App\Models\Comic;
 
 class HomeController extends Controller {
     
     function home() {
 
-        // $train = train::all();
+        $comic = Comic::all();
 
-        // dump($train);
+        dump($comic);
 
         return view('home',[
             // "train" => $train,
