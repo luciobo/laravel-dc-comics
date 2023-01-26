@@ -15,3 +15,14 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, "home"])->name("home");
+
+Route::get("/comics", [ComicController::class, "index"])->name("comics.index");
+
+// Create - Rotta che mostrerà una view con in form al suo interno dove poter inserire i dati
+Route::get("/comics/create", [ComicController::class, "create"])->name("comics.create");
+
+// Show - Rotta che legge un singolo elemento della tabella products
+Route::get("/comics/{comics}", [ProductController::class, "show"])->name("comics.show");
+
+// Store - Rotta che riceve i dati da un form e li salva nella tabella products
+Route::post("/comics", [ComicController::class, "store"])->name("comics.store");
