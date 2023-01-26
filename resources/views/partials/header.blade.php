@@ -13,12 +13,12 @@
             <div>
                 <ul class="m-0 d-flex list-unstyled ">
                     <li class="p-3">
-                        <a  href="{{ route('home') }}" 
-                        class="{{Route::currentRouteName() === "home" ? "text-primary" : "text-secondary"}}">HOME</a>
+                        <a href="{{ route('home') }}"
+                            class="{{ Route::currentRouteName() === 'home' ? 'text-primary' : 'text-secondary' }}">HOME</a>
                     </li>
                     <li class="p-3">
                         <a href="{{ route('comics.index') }}"
-                        class="{{Route::currentRouteName() === "about" ? "text-primary" : "text-secondary"}}">COMICS</a>
+                            class="{{ Route::currentRouteName() === 'about' ? 'text-primary' : 'text-secondary' }}">COMICS</a>
                     </li>
                 </ul>
             </div>
@@ -29,5 +29,5 @@
         </div>
     </nav>
 
-    
+
 </header>
