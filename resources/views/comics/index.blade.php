@@ -2,5 +2,5 @@
 
 @section('content')
 <section class="bg-green">
-    <h1>pagina </h1>
+    <h1>comics page</h1>
 @endsection
