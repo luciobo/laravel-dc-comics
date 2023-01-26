@@ -12,7 +12,7 @@ class HomeController extends Controller {
 
         $comic = Comic::all();
 
-        dump($comic);
+        // dump($comic);
 
         return view('home',[
             // "train" => $train,

@@ -1,15 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Comic;
+
 use Illuminate\Http\Request;
+
+use App\Models\Comic;
 
 class ComicController extends Controller
 {
 
     public function index() {
         // recuperare tutti i dati della tabella products
-        $comics = comic::all();
+        $comics = Comic::all();
+
+            dump($comics);
 
         // Ordino per data in ordine decrescente e recupero solo i primi 10,
         // tramite la funzione limit
@@ -76,7 +80,7 @@ class ComicController extends Controller
         }
 
         // dd($product);
-        return view("products.show", [
+        return view("comics.show", [
             "comics" => $comics
         ]);
     }
