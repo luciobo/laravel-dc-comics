@@ -39,11 +39,6 @@
                         <label class="form-label">Tipologia</label>
                         <input type="text" class="form-control" name="type">
                     </div>
-                    
-                    <div class="mb-3">
-
-                    </div>
-
                     <button class="btn btn-primary" type="submit">Aggiungi Comics</button>
                 </form>
             </div>

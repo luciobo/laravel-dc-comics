@@ -47,7 +47,16 @@ class ComicController extends Controller
         // recuperiamo tutti i dati inviati dal form sotto forma di array associativo
         $data = $request->all();
 
-        dd($data);
+        // dd($data);
+
+        // Prima alternativa.
+        // Tramite il metodo fill, assegniamo tutti i valori al nuovo prodotto, automaticamente
+        $data["price"] = (float) $data["price"];
+        $comics = new Comic();
+        // Prende ogni chiave dell'array associativo e ne assegna il valore all'istanza del prodotto
+        $comics->fill($data);
+        $comics->save();
+
 
 
         return redirect()->route("comics.show",);
