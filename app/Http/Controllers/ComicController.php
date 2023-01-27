@@ -51,15 +51,14 @@ class ComicController extends Controller
 
         // Prima alternativa.
         // Tramite il metodo fill, assegniamo tutti i valori al nuovo prodotto, automaticamente
-        $data["price"] = (float) $data["price"];
         $comics = new Comic();
         // Prende ogni chiave dell'array associativo e ne assegna il valore all'istanza del prodotto
         $comics->fill($data);
         $comics->save();
 
 
-
-        return redirect()->route("comics.show",);
+        
+        return redirect()->route("comics.show");
     }
 
 
@@ -71,9 +70,6 @@ class ComicController extends Controller
         // quello che cerca, non ritorna null, ma lancia un errore 404 not found.
         $comics = Comic::findOrFail($id);
 
-        if (!$comics) {
-            // faccio un altra ricerca o lancio un errore.
-        }
 
         // dd($product);
         return view("comics.show", [

@@ -12,7 +12,7 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label class="form-label">Nome</label>
+                        <label class="form-label">Titolo</label>
                         <input type="text" class="form-control" name="title">
                     </div>
                     <div class="mb-3">
