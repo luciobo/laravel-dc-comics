@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="">
-        <div class="py-5 text-center text-primary">
+    <section class="container">
+        <div class="py-5 text-primary text-center">
             <h1 class="">Lista Fumetti</h1>
-            {{-- <a href="{{ route('products.create') }}" class="btn btn-primary">
-                <i class="fas fa-plus"></i>
-                Aggiungi
-            </a> --}}
         </div>
+        <div class="pb-5 text-primary text-center">
+            <a href="{{ route('comics.create') }}" class="btn btn-primary">
+                <i class="fas fa-plus"></i>Aggiungi</a>
 
+        </div>
         <div class="container bg-info">
             <table class="table table-striped">
                 <thead>

@@ -9,12 +9,11 @@ use App\Models\Comic;
 class ComicController extends Controller
 {
 
-    public function index()
-    {
+    public function index() {
         // recuperare tutti i dati della tabella products
         $comics = Comic::all();
 
-        dump($comics);
+            dump($comics);
 
         // Ordino per data in ordine decrescente e recupero solo i primi 10,
         // tramite la funzione limit
@@ -44,33 +43,18 @@ class ComicController extends Controller
     }
 
 
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         // recuperiamo tutti i dati inviati dal form sotto forma di array associativo
         $data = $request->all();
 
-        // dump($data);
+        dd($data);
 
-        // Con i dati ricevuti, creo una nuova riga nel database
-        // $product = new Product();
-        // $product->name = $data["name"];
-        // $product->description = $data["description"];
-        // $product->price = (float) $data["price"];
-        // $product->available = $data["available"] === "si" ? 1 : 0;
-        // $product->img = "valore a caso";
-        // $product->save();
 
-        // Per evitare che l'utente rimanga sulla pagina in POST,
-        // e ricaricando la pagina possa reinviare gli stessi dati,
-        // reindirizziamo l'utente ad un'altra pagina a nostro piacimento.
-        // Se la pagina ha un parametro dinamico, dobbiamo passarlo come secondo
-        // argomento della funzione route.
         return redirect()->route("comics.show",);
     }
 
 
-    public function show($id)
-    {
+    public function show($id) {
         // dalla tabella products, devo cercare un elemento che abbia l'id indicato
         // $product = Product::find($id);
 
