@@ -10,7 +10,7 @@
                 <i class="fas fa-plus"></i>Aggiungi</a>
 
         </div>
-        <div class="container bg-info">
+        <div class="container ">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -48,8 +48,8 @@
                             Occore quindi passare il name delle rotta che vogliano.
                             Siccome la rotta "show" si aspetta un parametro dinamico dell'uri, obbligatorio,
                             questo lo passiamo come secondo argomento della funzione route(nome_rotta, valore_parametro_dinamico) --}}
-                                {{-- <a href="{{ route('products.show', $product->id) }}" class="btn btn-link">
-                                <i class="fas fa-eye"></i> --}}
+                                <a href="{{ route('comics.show', $comicEl->id) }}" class="btn btn-link">
+                                    <i class="fas fa-eye"></i>
                                 </a>
                             </td>
                         </tr>

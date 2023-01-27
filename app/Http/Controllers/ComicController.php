@@ -58,17 +58,17 @@ class ComicController extends Controller
 
 
         
-        return redirect()->route("comics.show");
+        return redirect()->route("comics.show", $comics->id);
     }
 
 
     public function show($id) {
         // dalla tabella products, devo cercare un elemento che abbia l'id indicato
-        // $product = Product::find($id);
-
+        $comics = Comic::find($id);
+        // dd($comics);
         // Il find or fail, lavora come il find, con la differenza che se NON trova
         // quello che cerca, non ritorna null, ma lancia un errore 404 not found.
-        $comics = Comic::findOrFail($id);
+        // $comics = Comic::findOrFail($id);
 
 
         // dd($product);
@@ -77,9 +77,17 @@ class ComicController extends Controller
         ]);
     }
 
-    public function edit($id)
-    {
-        //
+    public function edit($id) {
+        $comics = Comic::find($id);
+
+        if (!$comics) {
+            // Lancio un messaggio d'errore personalizzato
+            abort(406, "Ritenta, sarai più fortunato");
+        }
+
+        return view("products.edit", [
+            "comics" => $comics
+        ]);
     }
 
 
