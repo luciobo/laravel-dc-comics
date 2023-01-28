@@ -57,6 +57,15 @@
                                     <i class="fas fa-pencil"></i>
                                 </a>
                             </td>
+                            <td>
+                                {{-- <form action="{{ route('comics.destroy') }}" method="POST">
+                                    @csrf()
+                                    @method('delete')
+                                    <button class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form> --}}
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

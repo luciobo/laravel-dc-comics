@@ -79,15 +79,14 @@ class ComicController extends Controller
             "comics" => $comics
         ]);
     }
+
+
+
+    
     //           creato con dependecy injection
     public function edit(Comic $comics)
     {
         // $comics = Comic::findOrFail($id);
-
-        if (!$comics) {
-            // Lancio un messaggio d'errore personalizzato
-            abort(406, "Ritenta, sarai più fortunato");
-        }
 
         return view("comics.edit", [
             "comics" => $comics
@@ -95,41 +94,33 @@ class ComicController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         // recuperiamo tutti i dati inviati dal form sotto forma di array associativo
         $data = $request->all();
 
         // dd($data);
-        $comics = Comic::findOrFail($id);
+        // $comics = Comic::findOrFail($id);
         // Prima alternativa.
         // Tramite il metodo fill, assegniamo tutti i valori al nuovo prodotto, automaticamente
         $comics = new Comic();
         // Prende ogni chiave dell'array associativo e ne assegna il valore all'istanza del prodotto
         $comics->update($data);
-        // $comics->save();
-
-
-
+        $comics->save();
 
         return redirect()->route("comics.show", $comics->id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $comics = Comic::findOrFail($id);
+
+        // sull'istanza del model, il metodo da usare è delete()
+        $comics->delete();
+
+        // Un volta eliminato l'elemento dalla tabella, dobbiamo reindirizzare l'utente da qualche parte.
+        return redirect()->route("comics.index");
     }
 }
