@@ -9,11 +9,12 @@ use App\Models\Comic;
 class ComicController extends Controller
 {
 
-    public function index() {
+    public function index()
+    {
         // recuperare tutti i dati della tabella products
         $comics = Comic::all();
 
-            dump($comics);
+        dump($comics);
 
         // Ordino per data in ordine decrescente e recupero solo i primi 10,
         // tramite la funzione limit
@@ -43,7 +44,8 @@ class ComicController extends Controller
     }
 
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         // recuperiamo tutti i dati inviati dal form sotto forma di array associativo
         $data = $request->all();
 
@@ -57,35 +59,37 @@ class ComicController extends Controller
         $comics->save();
 
 
-        
+
         return redirect()->route("comics.show", $comics->id);
     }
 
+    //            creato senza dependecy injection
+    public function show($id)
+    {
 
-    public function show($id) {
         // dalla tabella products, devo cercare un elemento che abbia l'id indicato
-        $comics = Comic::find($id);
+        $comics = Comic::findOrFail($id);
+        
         // dd($comics);
         // Il find or fail, lavora come il find, con la differenza che se NON trova
         // quello che cerca, non ritorna null, ma lancia un errore 404 not found.
         // $comics = Comic::findOrFail($id);
-
-
         // dd($product);
         return view("comics.show", [
             "comics" => $comics
         ]);
     }
-
-    public function edit($id) {
-        $comics = Comic::find($id);
+    //           creato con dependecy injection
+    public function edit(Comic $comics)
+    {
+        // $comics = Comic::findOrFail($id);
 
         if (!$comics) {
             // Lancio un messaggio d'errore personalizzato
             abort(406, "Ritenta, sarai più fortunato");
         }
 
-        return view("products.edit", [
+        return view("comics.edit", [
             "comics" => $comics
         ]);
     }
@@ -100,7 +104,22 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // recuperiamo tutti i dati inviati dal form sotto forma di array associativo
+        $data = $request->all();
+
+        // dd($data);
+        $comics = Comic::findOrFail($id);
+        // Prima alternativa.
+        // Tramite il metodo fill, assegniamo tutti i valori al nuovo prodotto, automaticamente
+        $comics = new Comic();
+        // Prende ogni chiave dell'array associativo e ne assegna il valore all'istanza del prodotto
+        $comics->update($data);
+        // $comics->save();
+
+
+
+
+        return redirect()->route("comics.show", $comics->id);
     }
 
     /**

@@ -3,6 +3,13 @@
 @section('content')
     <div class="row d-flex justify-content-center">
         <div class="col-6 rounded-5 bg-success">
+            <div class="d-flex justify-content-end p-4">
+                <a class="" href="{{ route('comics.index') }}">
+                    <button type="button" class="btn btn-outline-light rounded-5">
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                </a>
+            </div>
             <h1>{{ $comics->title }} (#{{ $comics->id }})</h1>
             <p class="l">{{ $comics->description }}</p>
             <ul>
