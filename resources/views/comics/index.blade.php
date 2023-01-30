@@ -49,12 +49,12 @@
                                 Siccome la rotta "show" si aspetta un parametro dinamico dell'uri, obbligatorio,
                                 questo lo passiamo come secondo argomento della funzione route(nome_rotta, valore_parametro_dinamico) --}}
                                 <a href="{{ route('comics.show', $comicEl->id) }}" class="btn btn-link">
-                                    <i class="fas fa-eye"></i>
+                                    <i class="bi bi-eye-fill"></i></i>
                                 </a>
                             </td>
                             <td>
                                 <a href="{{ route('comics.edit', $comicEl->id) }}" class="btn btn-link">
-                                    <i class="fas fa-pencil"></i>
+                                    <i class="bi bi-pen-fill"></i></i>
                                 </a>
                             </td>
                             <td>
@@ -62,7 +62,7 @@
                                     @csrf()
                                     @method('delete')
                                     <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
+                                        <i class="bi bi-trash3"></i></i>
                                     </button>
                                 </form>
                             </td>
