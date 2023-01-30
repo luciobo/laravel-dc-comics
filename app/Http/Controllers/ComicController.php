@@ -107,7 +107,7 @@ class ComicController extends Controller
         $comics = new Comic();
         // Prende ogni chiave dell'array associativo e ne assegna il valore all'istanza del prodotto
         $comics->update($data);
-        $comics->save();
+        // $comics->save();
 
         return redirect()->route("comics.show", $comics->id);
     }

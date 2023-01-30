@@ -58,13 +58,13 @@
                                 </a>
                             </td>
                             <td>
-                                {{-- <form action="{{ route('comics.destroy') }}" method="POST">
+                                <form action="{{ route('comics.destroy', $comicEl->id) }}" method="POST">
                                     @csrf()
                                     @method('delete')
                                     <button class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </button>
-                                </form> --}}
+                                </form>
                             </td>
                         </tr>
                     @endforeach
