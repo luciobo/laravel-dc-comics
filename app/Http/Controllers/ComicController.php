@@ -74,7 +74,7 @@ class ComicController extends Controller
         // Il find or fail, lavora come il find, con la differenza che se NON trova
         // quello che cerca, non ritorna null, ma lancia un errore 404 not found.
         // $comics = Comic::findOrFail($id);
-        // dd($product);
+ 
         return view("comics.show", [
             "comics" => $comics
         ]);
@@ -84,12 +84,14 @@ class ComicController extends Controller
 
     
     //           creato con dependecy injection
-    public function edit(Comic $comics)
+    public function edit($id)
     {
-        // $comics = Comic::findOrFail($id);
-
+        // dd($id);
+        $comics = Comic::findOrFail($id);
+        // dd($comics);
         return view("comics.edit", [
             "comics" => $comics
+            
         ]);
     }
 
@@ -101,13 +103,15 @@ class ComicController extends Controller
         $data = $request->all();
 
         // dd($data);
-        // $comics = Comic::findOrFail($id);
+        $comics = Comic::findOrFail($id);
+        // dd($comics);
         // Prima alternativa.
         // Tramite il metodo fill, assegniamo tutti i valori al nuovo prodotto, automaticamente
-        $comics = new Comic();
+        // Tramite il metodo fill, assegniamo tutti i valori al nuovo prodotto, automaticamente
+        // $comics = new Comic();
         // Prende ogni chiave dell'array associativo e ne assegna il valore all'istanza del prodotto
         $comics->update($data);
-        // $comics->save();
+        $comics->save();
 
         return redirect()->route("comics.show", $comics->id);
     }

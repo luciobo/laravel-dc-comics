@@ -8,10 +8,10 @@
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 {{-- qui la rotta per ocllegare il form al comic controller  --}}
-                <form action="{{ route('comics.update', $comics->id) }}" method="POST">
+                <form action="/comics/{{ $comics->id }}" method="POST">
                     @csrf
 
-                    @method('put')
+                    @method('PUT')
 
                     <div class="mb-3">
                         <label class="form-label">Titolo</label>
