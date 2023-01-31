@@ -76,12 +76,27 @@
                     {{-- sale date --}}
                     <div class="mb-3">
                         <label class="form-label">Data prima vendita</label>
-                        <input type="date" class="form-control" name="sale_date">
+                        <input type="date" 
+                        class="form-control" 
+                        name="sale_date">
                     </div>
                     {{-- button add comics --}}
                     <div class="mb-3">
                         <label class="form-label">Tipologia</label>
-                        <input type="text" class="form-control" name="type">
+                        <input type="text" 
+                        class="form-control @error('type') is-invalid @elseif(old('type')) is-valid @enderror" 
+                        name="type">
+
+                        @error('type')
+                            <div class="invalid-feedback">
+                                hai toppato
+                            </div>
+                        @elseif(old('type'))
+                            {{-- altrimenti se c'è un valore old per title, mostra un valid-feedback --}}
+                            <div class="valid-feedback">
+                                Bravo
+                            </div>
+                        @enderror
                     </div>
                     <button class="btn btn-primary" type="submit">Aggiungi Comics</button>
                 </form>

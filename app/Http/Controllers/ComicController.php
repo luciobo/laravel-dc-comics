@@ -54,7 +54,7 @@ class ComicController extends Controller
             // "price" => "required|min:1|max:255",
             "series" => "required|min:1|max:255",
             // "sale_date" => "date",
-            // "type" => "required|min:1|max:255",
+            "type" => "required|min:1|max:255",
         ]);
         // $data = $request->all();
 
