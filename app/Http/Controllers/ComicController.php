@@ -48,7 +48,7 @@ class ComicController extends Controller
     {
         // recuperiamo tutti i dati inviati dal form sotto forma di array associativo
         $data = $request->validate([
-            "title" => "required|string|min:10|max:255",
+            "title" => "required|string|min:2|max:255",
             "description" => "required|string",
             "thumb" => "required|string|url",
             "price" => "required|decimal:2",
