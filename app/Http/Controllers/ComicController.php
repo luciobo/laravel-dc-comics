@@ -48,12 +48,12 @@ class ComicController extends Controller
     {
         // recuperiamo tutti i dati inviati dal form sotto forma di array associativo
         $data = $request->validate([
-            "title" => "required|min:10|max:255",
+            "title" => "required|string|min:10|max:255",
             "description" => "required|string",
-            // "thumb" => "string|url",
-            // "price" => "required|min:1|max:255",
+            "thumb" => "required|string|url",
+            "price" => "required|decimal:2",
             "series" => "required|min:1|max:255",
-            // "sale_date" => "date",
+            "sale_date" => "required|date",
             "type" => "required|min:1|max:255",
         ]);
         // $data = $request->all();
