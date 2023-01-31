@@ -14,7 +14,7 @@ class ComicController extends Controller
         // recuperare tutti i dati della tabella products
         $comics = Comic::all();
 
-        dump($comics);
+        // dump($comics);
 
         // Ordino per data in ordine decrescente e recupero solo i primi 10,
         // tramite la funzione limit
@@ -47,7 +47,16 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         // recuperiamo tutti i dati inviati dal form sotto forma di array associativo
-        $data = $request->all();
+        $data = $request->validate([
+            "title" => "required|min:10|max:255",
+            // "description" => "required|string",
+            // "thumb" => "string|url",
+            // "price" => "required|min:1|max:255",
+            // "series" => "required|min:1|max:255",
+            // "sale_date" => "date",
+            // "type" => "required|min:1|max:255",
+        ]);
+        // $data = $request->all();
 
         // dd($data);
 

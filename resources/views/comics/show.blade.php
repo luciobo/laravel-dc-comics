@@ -23,7 +23,7 @@
             </ul>
             <div class="d-flex justify-content-around p-3">
                 <div>
-                    <a class="" href="{{ route('comics.index') }}">
+                    <a class="" href="{{ route("comics.edit", $comics->id) }}">
                         <button type="button" class="btn btn-outline-light">modifica
                             <i class="bi bi-pen-fill ps-2"></i></i>
                         </button>

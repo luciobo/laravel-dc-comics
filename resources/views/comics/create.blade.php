@@ -13,7 +13,20 @@
 
                     <div class="mb-3">
                         <label class="form-label">Titolo</label>
-                        <input type="text" class="form-control" name="title">
+                        <input type="text"
+                            class="form-control @error('title') is-invalid @elseif(old('title')) is-valid @enderror"
+                            name="title">
+
+                        @error('title')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @elseif(old('title'))
+                            {{-- altrimenti se c'è un valore old per title, mostra un valid-feedback --}}
+                            <div class="valid-feedback">
+                                Ottimo lavoro!
+                            </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Descrizione</label>

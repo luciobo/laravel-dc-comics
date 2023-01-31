@@ -10,12 +10,12 @@ class HomeController extends Controller {
     
     function home() {
 
-        $comic = Comic::all();
+        $comics = Comic::all();
 
         // dump($comic);
 
         return view('home',[
-            // "train" => $train,
+            "comics" => $comics,
         ]);
     }
 
